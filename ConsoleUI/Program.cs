@@ -6,11 +6,8 @@ Console.WriteLine("Hello, World!");
 
 PlaceManager placeManager = new PlaceManager(new EfPlaceDal());
 
-foreach (var place in placeManager.GetAllByCategoryId(2))
+foreach (var place in placeManager.GetPlaceDetails())
 {
-    Console.WriteLine(place.Description);
-    Console.WriteLine(place.PlacePhoneNumber);
-    Console.WriteLine(place.PlaceAddress);
-    Console.WriteLine(place.PlaceName);
-    Console.WriteLine(place.CloseTime);
+    Console.WriteLine(place.PlaceName+" "+place.ProductName+" "+place.UnitPrice+" "+place.MenuCategoryName);
+
 }

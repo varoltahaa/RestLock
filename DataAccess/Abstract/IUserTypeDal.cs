@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IPlaceCategoryDal : IEntityRepository<PlaceCategory>
+    public interface IUserTypeDal :IEntityRepository<UserType>
     {
     }
 }

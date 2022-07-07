@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,16 @@ namespace DataAccess.Concrete.InMemory
     public class InMemoryPlaceDal : IPlaceDal
     {
         List<Place> _places;
-        public InMemoryPlaceDal()
-        {
-            _places = new List<Place>
-            {
-                new Place{PlaceId=1,MenuId=1,PlaceCategoryId=1,PlaceName="Cafe",PlaceAddress="Elazığ",PlacePhoneNumber="05536729837"
-                ,OpenTime=System.TimeSpan.Zero,CloseTime=System.TimeSpan.Zero,Description="Güzel Cafe" },
-                 new Place{PlaceId=2,MenuId=3,PlaceCategoryId=2,PlaceName="Lokanta",PlaceAddress="Edirne",PlacePhoneNumber="05536729837"
-                ,OpenTime=System.TimeSpan.Zero,CloseTime=System.TimeSpan.Zero,Description="Güzel Lokanta" }
-            };
-        }
+        //public InMemoryPlaceDal()
+        //{
+        //    _places = new List<Place>
+        //    {
+        //        new Place{PlaceId=1,MenuId=1,PlaceCategoryId=1,PlaceName="Cafe",PlaceAddress="Elazığ",PlacePhoneNumber="05536729837"
+        //        ,OpenTime=System.TimeSpan.Zero,CloseTime=System.TimeSpan.Zero,Description="Güzel Cafe" },
+        //         new Place{PlaceId=2,MenuId=3,PlaceCategoryId=2,PlaceName="Lokanta",PlaceAddress="Edirne",PlacePhoneNumber="05536729837"
+        //        ,OpenTime=System.TimeSpan.Zero,CloseTime=System.TimeSpan.Zero,Description="Güzel Lokanta" }
+        //    };
+        //}
         public void Add(Place place)
         {
             _places.Add(place);
@@ -51,6 +52,11 @@ namespace DataAccess.Concrete.InMemory
         public List<Place> GetAllByCategory(int categoryId)
         {
             return _places.Where(p => p.PlaceCategoryId == categoryId).ToList();
+        }
+
+        public List<PlaceDetailDto> GetPlaceDetail()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Place place)

@@ -1,4 +1,4 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,7 @@ namespace Entities.Concrete
     public class User : IEntity
     {
         public int UserId { get; set; }
+        public int UserTypeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EMail { get; set; }

@@ -1,6 +1,9 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,28 +20,38 @@ namespace Business.Concrete
             _placeDal = placeDal;
         }
 
-        public void Add(Place place)
+        public IResult Add(Place place)
+        {
+            if (place.PlaceName.Length<2)
+            {
+                return new ErrorResult(Messages.PlaceAddedError);
+            }
+            _placeDal.Add(place);
+            return new SuccessResult(Messages.PlaceAdded);
+        }
+
+        public IResult Delete(Place place)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(Place place)
+        public IDataResult<List<Place>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List< Place >>(_placeDal.GetAll());
         }
 
-        public List<Place> GetAll()
+        public IDataResult<List<Place>> GetAllByCategoryId(int categoryId)
         {
-            return _placeDal.GetAll();
-        }
-
-        public List<Place> GetAllByCategoryId(int categoryId)
-        {
-            return _placeDal.GetAll(p => p.PlaceCategoryId == categoryId);
+            return new SuccessDataResult<List<Place>>(_placeDal.GetAll(p => p.PlaceCategoryId == categoryId));
 
         }
 
-        public void Update(Place place)
+        public IDataResult<List<PlaceDetailDto>> GetPlaceDetails()
+        {
+            return new SuccessDataResult<List<PlaceDetailDto>>(_placeDal.GetPlaceDetail());
+        }
+
+        public IResult Update(Place place)
         {
             throw new NotImplementedException();
         }

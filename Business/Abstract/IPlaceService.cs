@@ -1,4 +1,6 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,13 @@ namespace Business.Abstract
 {
     public interface IPlaceService
     {
-        List<Place> GetAll();
-        List<Place> GetAllByCategoryId(int categoryId);
-        void Add(Place place);
-        void Update(Place place);
-        void Delete(Place place);
+        IDataResult<List<Place>> GetPlaceDetails();
+        IDataResult<List<Place>> GetAll();
+        IDataResult<List<Place>> GetAllByCategoryId(int categoryId);
+        IResult Add(Place place);
+        IResult Update(Place place);
+        IResult Delete(Place place);
+
 
 
     }
