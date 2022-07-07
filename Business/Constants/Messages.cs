@@ -10,6 +10,7 @@ namespace Business.Constants
     {
         public static string PlaceAdded = "Ürün Eklendi!";
         public static string PlaceAddedError = "Ürün Eklenemedi!";
+        public static string PlaceListed = "Ürünler Listelendi!";
 
 
     }

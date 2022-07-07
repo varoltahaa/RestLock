@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace Business.Abstract
 {
     public interface IMenuCategoryService
     {
-        List<MenuCategory> GetAll();
-        MenuCategory Get(int id);
-        void Add(MenuCategory menuCategory);
-        void Update(MenuCategory menuCategory);
-        void Delete(MenuCategory menuCategory);
+        IDataResult<List<MenuCategory>> GetAll();
+        IDataResult<MenuCategory> Get(int id);
+        IResult Add(MenuCategory menuCategory);
+        IResult Update(MenuCategory menuCategory);
+        IResult Delete(MenuCategory menuCategory);
     }
 }

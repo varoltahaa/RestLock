@@ -37,18 +37,17 @@ namespace Business.Concrete
 
         public IDataResult<List<Place>> GetAll()
         {
-            return new SuccessDataResult<List< Place >>(_placeDal.GetAll());
+            return new SuccessDataResult<List< Place >>(_placeDal.GetAll(),Messages.PlaceListed);
         }
 
         public IDataResult<List<Place>> GetAllByCategoryId(int categoryId)
         {
-            return new SuccessDataResult<List<Place>>(_placeDal.GetAll(p => p.PlaceCategoryId == categoryId));
-
+            return new SuccessDataResult<List<Place>>(_placeDal.GetAll(p => p.PlaceCategoryId == categoryId), Messages.PlaceListed);
         }
 
         public IDataResult<List<PlaceDetailDto>> GetPlaceDetails()
         {
-            return new SuccessDataResult<List<PlaceDetailDto>>(_placeDal.GetPlaceDetail());
+            return new SuccessDataResult<List<PlaceDetailDto>>(_placeDal.GetPlaceDetail(), Messages.PlaceListed);
         }
 
         public IResult Update(Place place)
