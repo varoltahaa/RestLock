@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -11,33 +12,27 @@ namespace Business.Concrete
 {
     public class PlaceCategoryManager : IPlaceCategoryService
     {
-
-        IPlaceCategoryDal _ıPlaceCategoryDal;
-        public PlaceCategoryManager(IPlaceCategoryDal placeCategoryDal)
-        {
-            _ıPlaceCategoryDal = placeCategoryDal;
-        }
-        public void Add(PlaceCategory placeCategory)
+        public IResult Add(PlaceCategory placeCategory)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(PlaceCategory placeCategory)
+        public IResult Delete(PlaceCategory placeCategory)
         {
             throw new NotImplementedException();
         }
 
-        public PlaceCategory Get(int id)
+        public IDataResult<PlaceCategory> Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<PlaceCategory> GetAll()
+        public IDataResult<List<PlaceCategory>> GetAll()
         {
-            return _ıPlaceCategoryDal.GetAll();
+            throw new NotImplementedException();
         }
 
-        public void Update(PlaceCategory placeCategory)
+        public IResult Update(PlaceCategory placeCategory)
         {
             throw new NotImplementedException();
         }
