@@ -22,7 +22,8 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuCategory> MenuCategories { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserType> UsersType { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }
 }

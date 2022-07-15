@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IUserDal:IEntityRepository<User>
-    {
-    }
+        public interface IUserDal : IEntityRepository<User>
+        {
+            List<UserType> GetClaims(User user);
+        }
 }

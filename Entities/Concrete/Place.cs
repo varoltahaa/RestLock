@@ -12,7 +12,7 @@ namespace Entities.Concrete
     public class Place:IEntity
     {
         public int PlaceId { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public int PlaceCategoryId { get; set; }
         public string PlaceName { get; set; }
         public string PlacePhoneNumber { get; set; }

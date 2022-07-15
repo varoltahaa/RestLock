@@ -14,5 +14,7 @@ namespace Business.Abstract
         IResult Add(User user);
         IResult Update(User user);
         IResult Delete(User user);
+        List<UserType> GetClaims(User user);
+        User GetByMail(string email);
     }
 }

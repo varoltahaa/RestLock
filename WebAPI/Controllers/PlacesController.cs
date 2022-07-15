@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getallbycategoryid")]
-        public IActionResult GetGetAllByCategoryId(int id)
+        public IActionResult GetAllByCategoryId(int id)
         {
             var result = _placeService.GetAllByCategoryId(id);
             if (result.Success)
