@@ -41,7 +41,7 @@ namespace Business.Concrete
                     return new SuccessResult(Messages.PlaceAdded);
             }
 
-            return new ErrorResult("Hata");
+            return new ErrorResult(Messages.PlaceAddedError);
         }
 
         public IResult Delete(Place place)
@@ -58,7 +58,12 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Place>>(_placeDal.GetAll(p => p.PlaceCategoryId == categoryId), Messages.PlaceListed);
         }
-        
+
+        public IDataResult<Place> GetPlaceById(int id)
+        {
+            return new SuccessDataResult<Place>(_placeDal.Get(p=>p.PlaceId == id));
+        }
+
         public IDataResult<List<PlaceDetailDto>> GetPlaceDetails()
         {
             return new SuccessDataResult<List<PlaceDetailDto>>(_placeDal.GetPlaceDetail(), Messages.PlaceListed);

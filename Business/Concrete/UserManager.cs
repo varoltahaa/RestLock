@@ -32,7 +32,7 @@ namespace Business.Concrete
 
         public IDataResult<List<User>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
 
         public User GetByMail(string email)

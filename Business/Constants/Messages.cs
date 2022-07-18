@@ -8,9 +8,9 @@ namespace Business.Constants
 {
     public static class Messages
     {
-        public static string PlaceAdded = "Ürün Eklendi!";
-        public static string PlaceAddedError = "Ürün Eklenemedi!";
-        public static string PlaceListed = "Ürünler Listelendi!";
+        public static string PlaceAdded = "Mekan Eklendi!";
+        public static string PlaceAddedError = "Mekan Eklenemedi!";
+        public static string PlaceListed = "Mekanlar Listelendi!";
 
 
     }

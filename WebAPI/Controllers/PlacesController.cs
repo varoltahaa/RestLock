@@ -28,10 +28,21 @@ namespace WebAPI.Controllers
             
         }
 
-        [HttpGet("getallbycategoryid")]
-        public IActionResult GetAllByCategoryId(int id)
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int placeId)
         {
-            var result = _placeService.GetAllByCategoryId(id);
+            var result = _placeService.GetPlaceById(placeId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getallbycategoryid")]
+        public IActionResult GetAllByCategoryId(int categoryId)
+        {
+            var result = _placeService.GetAllByCategoryId(categoryId);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,5 +60,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+
     }
 }

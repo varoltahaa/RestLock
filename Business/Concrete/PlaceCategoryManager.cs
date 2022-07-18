@@ -12,6 +12,11 @@ namespace Business.Concrete
 {
     public class PlaceCategoryManager : IPlaceCategoryService
     {
+        IPlaceCategoryDal _placeCategoryDal;
+        public PlaceCategoryManager(IPlaceCategoryDal placeCategoryDal)
+        {
+            _placeCategoryDal = placeCategoryDal;
+        }
         public IResult Add(PlaceCategory placeCategory)
         {
             throw new NotImplementedException();
@@ -29,7 +34,7 @@ namespace Business.Concrete
 
         public IDataResult<List<PlaceCategory>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<PlaceCategory>>(_placeCategoryDal.GetAll());
         }
 
         public IResult Update(PlaceCategory placeCategory)

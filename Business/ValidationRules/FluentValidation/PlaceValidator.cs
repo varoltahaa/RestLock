@@ -12,7 +12,7 @@ namespace Business.ValidationRules.FluentValidation
     {
         public PlaceValidator()
         {
-            RuleFor(p => p.PlaceName).MinimumLength(2);
+            RuleFor(p => p.PlaceName).MinimumLength(2).WithMessage("2 karakterden az değer veremezsin!");
             RuleFor(p => p.PlaceName).NotEmpty();
             RuleFor(p => p.PlaceAddress).NotEmpty();
             RuleFor(p => p.PlacePhoneNumber).NotEmpty();

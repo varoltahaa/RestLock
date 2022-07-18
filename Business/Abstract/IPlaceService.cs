@@ -17,6 +17,7 @@ namespace Business.Abstract
         IResult Add(Place place);
         IResult Update(Place place);
         IResult Delete(Place place);
+        IDataResult<Place> GetPlaceById(int id);
 
 
 
