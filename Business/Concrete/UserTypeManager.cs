@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,24 +12,33 @@ namespace Business.Concrete
 {
     public class UserTypeManager : IUserTypeService
     {
+        IUserTypeDal _userTypeDal;
+        public UserTypeManager(IUserTypeDal userTypeDal)
+        {
+            _userTypeDal = userTypeDal;
+        }
+
         public IResult Add(UserType userType)
         {
-            throw new NotImplementedException();
+            _userTypeDal.Add(userType);
+            return new SuccessResult();
         }
 
         public IResult Delete(UserType userType)
         {
-            throw new NotImplementedException();
+            _userTypeDal.Delete(userType);
+            return new SuccessResult();
         }
 
         public IDataResult<List<UserType>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<UserType>>(_userTypeDal.GetAll());
         }
 
         public IResult Update(UserType userType)
         {
-            throw new NotImplementedException();
+            _userTypeDal.Update(userType);
+            return new SuccessResult();
         }
     }
 }

@@ -46,7 +46,8 @@ namespace Business.Concrete
 
         public IResult Delete(Place place)
         {
-            throw new NotImplementedException();
+            _placeDal.Delete(place);
+            return new SuccessResult();
         }
         [CacheAspect]
         public IDataResult<List<Place>> GetAll()
@@ -64,14 +65,22 @@ namespace Business.Concrete
             return new SuccessDataResult<Place>(_placeDal.Get(p=>p.PlaceId == id));
         }
 
-        public IDataResult<List<PlaceDetailDto>> GetPlaceDetails()
+        public IDataResult<List<PlaceDetailDto>> GetPlaceDetails(int placeId)
         {
-            return new SuccessDataResult<List<PlaceDetailDto>>(_placeDal.GetPlaceDetail(), Messages.PlaceListed);
+            return new SuccessDataResult<List<PlaceDetailDto>>(_placeDal.GetPlaceDetail(placeId), Messages.PlaceListed);
         }
         [CacheRemoveAspect("ProductService.Get")]
         public IResult Update(Place place)
         {
-            throw new NotImplementedException();
+            IResult result = BusinessRules.Run(CheckNamePlace(place.PlaceName));
+
+            if (result.Success)
+            {
+                _placeDal.Update(place);
+                return new SuccessResult();
+            }
+
+            return new ErrorResult();
         }
 
         private IResult CheckIfPlaceCountOfCategory(int categoryid) 

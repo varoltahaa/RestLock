@@ -12,6 +12,6 @@ namespace DataAccess.Abstract
 {
     public interface IPlaceDal: IEntityRepository<Place>
     {
-        List<PlaceDetailDto> GetPlaceDetail();
+        List<PlaceDetailDto> GetPlaceDetail(int placeId);
     }
 }

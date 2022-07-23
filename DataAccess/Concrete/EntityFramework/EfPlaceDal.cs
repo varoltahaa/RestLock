@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfPlaceDal : EfEntityRepositoryBase<Place, RestLockContext>, IPlaceDal
     {
-        public List<PlaceDetailDto> GetPlaceDetail()
+        public List<PlaceDetailDto> GetPlaceDetail(int placeId)
         {
             using (RestLockContext context = new RestLockContext())
             {
@@ -25,6 +25,7 @@ namespace DataAccess.Concrete.EntityFramework
                              on m.MenuId equals pr.MenuId
                              join mm in context.MenuCategories
                              on m.MenuCategoryId equals mm.MenuCategoryId
+                             where p.PlaceId == placeId
                              select new PlaceDetailDto {PlaceName = p.PlaceName, ProductName = pr.ProductName, UnitPrice = pr.UnitPrice, MenuCategoryName = mm.Name };
                 return result.ToList();
 

@@ -6,20 +6,3 @@ Console.WriteLine("Hello, World!");
 
 PlaceManager placeManager = new PlaceManager(new EfPlaceDal());
 
-var result = placeManager.GetPlaceDetails();
-
-if (result.Success)
-{
-foreach (var place in result.Data)
-{
-    Console.WriteLine(place.PlaceName+" "+place.ProductName+" "+place.UnitPrice+" "+place.MenuCategoryName);
-
-  }
-}
-
-else
-{
-    Console.WriteLine(result.Message);
-}
-
-

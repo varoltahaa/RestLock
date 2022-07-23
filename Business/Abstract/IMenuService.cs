@@ -11,6 +11,7 @@ namespace Business.Abstract
     public interface IMenuService
     {
         IDataResult<List<Menu>> GetAll();
+        IDataResult<Menu> GetByPlaceId(int placeId);
         IDataResult<List<Menu>> GetAllByCategoryId(int menuCategoryId);
         IResult Add(Menu menu);
         IResult Update(Menu menu);

@@ -19,17 +19,19 @@ namespace Business.Concrete
         }
         public IResult Add(PlaceCategory placeCategory)
         {
-            throw new NotImplementedException();
+            _placeCategoryDal.Add(placeCategory);
+            return new SuccessResult();
         }
 
         public IResult Delete(PlaceCategory placeCategory)
         {
-            throw new NotImplementedException();
+            _placeCategoryDal.Delete(placeCategory);
+            return new SuccessResult();
         }
 
         public IDataResult<PlaceCategory> Get(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<PlaceCategory>(_placeCategoryDal.Get(p => p.PlaceCategoryId ==id));
         }
 
         public IDataResult<List<PlaceCategory>> GetAll()
@@ -39,7 +41,8 @@ namespace Business.Concrete
 
         public IResult Update(PlaceCategory placeCategory)
         {
-            throw new NotImplementedException();
+            _placeCategoryDal.Update(placeCategory);
+            return new SuccessResult();
         }
     }
 }

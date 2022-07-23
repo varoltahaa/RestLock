@@ -11,7 +11,7 @@ namespace Business.Abstract
 {
     public interface IPlaceService
     {
-        IDataResult<List<PlaceDetailDto>> GetPlaceDetails();
+        IDataResult<List<PlaceDetailDto>> GetPlaceDetails(int placeId);
         IDataResult<List<Place>> GetAll();
         IDataResult<List<Place>> GetAllByCategoryId(int categoryId);
         IResult Add(Place place);

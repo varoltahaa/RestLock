@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-        public interface IUserDal : IEntityRepository<User>
-        {
-            List<UserType> GetClaims(User user);
-
-        }
+    public interface IPlaceImageDal:IEntityRepository<PlaceImage>
+    {
+    }
 }
