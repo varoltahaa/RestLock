@@ -48,7 +48,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result);
+            return Ok(result);
         }
 
         [HttpGet("getbyimageid")]
@@ -61,6 +61,16 @@ namespace WebAPI.Controllers
             }
 
             return BadRequest(result);
+        }
+
+        [HttpGet("getimage")]
+        public IActionResult GetImage(string imagePath)
+        {
+            Byte[] b;
+
+            b = System.IO.File.ReadAllBytes("C:/Users/Taha/Desktop/RestLock/RestLock/WebAPI/wwwroot/Uploads/Images/" + imagePath);
+          
+            return File(b, "image/jpeg");
         }
 
 

@@ -52,12 +52,16 @@ namespace Business.Concrete
 
         public IDataResult<List<PlaceImage>> GetByPlaceId(int placeId)
         {
-            var result = BusinessRules.Run(CheckPlaceImage(placeId));
-            if (result != null)
+            if (!CheckPlaceImage(placeId))
             {
                 return new ErrorDataResult<List<PlaceImage>>(GetDefaultImage(placeId).Data);
             }
-            return new SuccessDataResult<List<PlaceImage>>(_placeImageDal.GetAll(p => p.PlaceId == placeId));
+            List<PlaceImage> list = _placeImageDal.GetAll(p => p.PlaceId == placeId);
+            foreach (var item in list)
+            {
+                item.ImagePath = "https://localhost:44333/api/PlaceImages/getimage?imagePath=" + item.ImagePath;
+            }
+            return new SuccessDataResult<List<PlaceImage>>(list);
         }
 
         public IDataResult<PlaceImage> GetByImageId(int imageId)
@@ -89,14 +93,10 @@ namespace Business.Concrete
             return new SuccessDataResult<List<PlaceImage>>(placeImage);
         }
 
-        private IResult CheckPlaceImage(int placeId)
+        private bool CheckPlaceImage(int placeId)
         {
-            var result = _placeImageDal.GetAll(p => p.PlaceId == placeId).Count;
-            if (result > 0)
-            {
-                return new SuccessResult();
-            }
-            return new ErrorResult();
+            return _placeImageDal.GetAll(p => p.PlaceId == placeId).Count > 0;
+
         }
     }
 }
