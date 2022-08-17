@@ -26,7 +26,7 @@ namespace DataAccess.Concrete.EntityFramework
                              join mm in context.MenuCategories
                              on m.MenuCategoryId equals mm.MenuCategoryId
                              where p.PlaceId == placeId
-                             select new PlaceDetailDto {PlaceName = p.PlaceName, ProductName = pr.ProductName, UnitPrice = pr.UnitPrice, MenuCategoryName = mm.Name };
+                             select new PlaceDetailDto {PlaceId =p.PlaceId,PlaceName = p.PlaceName, ProductName = pr.ProductName, UnitPrice = pr.UnitPrice, MenuCategoryName = mm.Name };
                 return result.ToList();
 
             }

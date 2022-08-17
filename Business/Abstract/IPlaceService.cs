@@ -19,6 +19,8 @@ namespace Business.Abstract
         IResult Delete(Place place);
         IDataResult<Place> GetPlaceById(int id);
 
+        IDataResult<List<Place>> GePlaceByUserId(int userId);
+
 
 
     }

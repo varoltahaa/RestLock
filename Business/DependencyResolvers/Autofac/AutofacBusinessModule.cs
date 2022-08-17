@@ -48,6 +48,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<PlaceImageManager>().As<IPlaceImageService>().SingleInstance();
             builder.RegisterType<EfPlaceImageDal>().As<IPlaceImageDal>().SingleInstance();
 
+            builder.RegisterType<CommentManager>().As<ICommentService>().SingleInstance();
+            builder.RegisterType<EfCommentDal>().As<ICommentDal>().SingleInstance();
+
             builder.RegisterType<FileHelperManager>().As<IFileHelper>().SingleInstance();
 
             builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>();

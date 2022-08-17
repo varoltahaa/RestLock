@@ -50,6 +50,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getplacebyuserid")]
+        public IActionResult GetPlaceByUserId(int userId)
+        {
+            var result = _placeService.GePlaceByUserId(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         //[HttpGet("getmenudetail")]
         //public IActionResult GetMenuDetail()
         //{

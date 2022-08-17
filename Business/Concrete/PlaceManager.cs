@@ -49,6 +49,12 @@ namespace Business.Concrete
             _placeDal.Delete(place);
             return new SuccessResult();
         }
+
+        public IDataResult<List<Place>> GePlaceByUserId(int userId)
+        {
+            return new SuccessDataResult<List<Place>>(_placeDal.GetAll(p => p.UserId == userId));
+        }
+
         [CacheAspect]
         public IDataResult<List<Place>> GetAll()
         {
