@@ -21,8 +21,8 @@ namespace Entities.Concrete
         public TimeSpan OpenTime { get; set; }
         public TimeSpan CloseTime { get; set; }
         public string Description { get; set; }
-        public decimal? Latitude { get; set; }
-        public decimal? Longitude { get; set; }
+        public string? Latitude { get; set; }
+        public string? Longitude { get; set; }
 
     }
 }
